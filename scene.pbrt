@@ -26,8 +26,7 @@ AttributeEnd
 ObjectBegin "/obj/geo_archive"
     AttributeBegin
 		# For testing you can uncomment this for a simple sphere
-        #Shape "sphere"
-        #    "float radius" [ 0.5 ]
+        #Shape "sphere" "float radius" [ 0.5 ]
 
 		# Alternatively you can use your own geometry or .pbrt file
 		# The expected bounds of the object are a unit ranging from -0.5 to +0.5
