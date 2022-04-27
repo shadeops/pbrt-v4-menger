@@ -1,0 +1,49 @@
+Film "rgb"
+    "integer yresolution" [ 720 ]
+    "integer xresolution" [ 1280 ]
+    "string filename" [ "menger.exr" ]
+PixelFilter "gaussian"
+    "float yradius" [ 2 ]
+    "float xradius" [ 2 ]
+Sampler "zsobol"
+    "integer pixelsamples" [ 4096 ]
+Integrator "volpath"
+    "integer maxdepth" [ 20 ]
+
+Accelerator "bvh"
+Transform [ 0.95163184 0.09723523 0.29144827 0 0 0.94859946 -0.31647912 0 0.3072406 -0.3011716 -0.9027175 0 -0.022732018 0.14258613 2.69124 1  ]
+Camera "perspective"
+    "float screenwindow" [ -1 1 -0.5625 0.5625 ]
+    "float fov" [ 53.130104 ]
+
+WorldBegin
+
+AttributeBegin
+    LightSource "infinite"
+        "float scale" [ 1 ]
+AttributeEnd
+        
+ObjectBegin "/obj/geo_archive"
+    AttributeBegin
+		# For testing you can uncomment this for a simple sphere
+        #Shape "sphere"
+        #    "float radius" [ 0.5 ]
+
+		# Alternatively you can use your own geometry or .pbrt file
+		# The expected bounds of the object are a unit ranging from -0.5 to +0.5
+        #Shape "plymesh" "string filename" [ "./geo/menger_sponge_4.ply.gz" ]
+
+        Import "./geo/instanced_shapes.pbrt"
+    AttributeEnd
+ObjectEnd
+
+AttributeBegin
+	# Depending on your GPU RAM you may need to use a lower level
+
+	# If you have ~3GB of GPU RAM
+    Include "./instancing/instancer_5.pbrt"
+
+	# If you have ~14GB of GPU RAM
+    #Include "./instancing/instancer_6.pbrt"
+AttributeEnd
+
