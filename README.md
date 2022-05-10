@@ -21,4 +21,5 @@ This will give you 11 iterations, or 204,800,000,000,000 boxes.
 When using the `instancer_6.pbrt`, it uses `Imports` instead of `Includes` which allows the nested structures to be built across 20 different threads greatly speeding up the load time. On my machine when rendering `instancer_6.pbrt` the time to first pixel is about 50s.
 
 Try it out in interactive mode!
-`pbrt --interactive --gpu scene.pbrt
+`pbrt --interactive --gpu scene.pbrt`
+
